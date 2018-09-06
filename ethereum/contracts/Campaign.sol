@@ -41,8 +41,8 @@ contract Campaign {
         minimumContribution = minimum;
     }
     
-    function contribute(uint contribution) public payable {
-        require(contribution > minimumContribution);
+    function contribute() public payable {
+        require(msg.value > minimumContribution);
         // approvers.push(msg.sender);
         approvers[msg.sender] = true;
         approversCount++;
@@ -77,7 +77,7 @@ contract Campaign {
         requests[index].approvalCount++;
     }
     
-    function finalizeRequest(uint index) public {
+    function finalizeRequest(uint index) public restricted {
         
         // Making request variable as storage, makes it point it to the same storage location.
         Request storage request = requests[index];
@@ -86,5 +86,21 @@ contract Campaign {
         require(!request.complete);
         request.recepient.transfer(request.value);
         request.complete = true;
+    }
+
+    function getSummary() public view returns (
+      uint, uint, uint, uint, address
+      ) {
+        return (
+          minimumContribution,
+          this.balance,
+          requests.length,
+          approversCount,
+          manager
+        );
+    }
+
+    function getRequestsCount() public view returns (uint) {
+        return requests.length;
     }
 }
