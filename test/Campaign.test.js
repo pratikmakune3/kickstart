@@ -65,12 +65,6 @@ describe('Campaigns', () => {
 	});
 
 	it('processes requests', async () => {
-		/*
-			1. contrinute 10 ethers by account[1]  
-			2. manager creates spending request, value = 5 ethers, account[2] is reciepient
-			3. account[1] approve request.
-			4. manager finalize request, check if account[2] balance goes up by 5 ethers
-		*/
 
 		await campaign.methods.contribute().send({
 			from  : accounts[1],
