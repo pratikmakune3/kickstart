@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "dev": "next dev"
   },
   "author": "",
   "license": "ISC",
@@ -12,6 +13,11 @@
     "fs-extra": "^7.0.0",
     "ganache-cli": "^6.1.8",
     "mocha": "^5.2.0",
+    "next": "^4.1.4",
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0",
+    "semantic-ui-css": "^2.3.3",
+    "semantic-ui-react": "^0.82.3",
     "solc": "^0.4.24",
     "truffle-hdwallet-provider": "0.0.3",
     "web3": "^1.0.0-beta.34"
