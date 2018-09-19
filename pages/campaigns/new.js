@@ -1,18 +1,47 @@
 import React, {Component} from 'react';
-import Layout from '../../components/Layout.js';
-import { Form, Button, Input } from 'semantic-ui-react';
+import Layout from '../../components/Layout';
+import { Form, Button, Input, Message } from 'semantic-ui-react';
+import factory from '../../ethereum/factory';
+import web3 from '../../ethereum/web3';
+import { Router } from '../../routes';
 
 class CampaignNew extends Component {
 
 	state = {
-		minimumContribution : ''
+		minimumContribution : '',
+		errorMessage : '',
+		loading : false
 	};
 
-	onSubmit = (event) => {
+	onSubmit = async (event) => {
 		event.preventDefault();
+
+		this.setState({loading : true, errorMessage : ''});
+		
+		try{
+			const accounts = await web3.eth.getAccounts();
+			await factory.methods.createCampaign(this.state.minimumContribution)
+				.send({
+					from : accounts[0]
+					// No need to specify gas as Metamask evaluates it!
+				});
+
+			Router.pushRoute('/');
+		}catch(err) {
+			this.setState({ errorMessage : err.message });
+		}
+
+		this.setState({loading : false});
 	};
 
 	render(){
+
+		let Error;
+
+		if(this.state.errorMessage) {
+			Error = <Message negative header='Oops!' content={this.state.errorMessage} />
+		}
+
 		return (
 			<div>
 				<Layout> 
@@ -28,7 +57,9 @@ class CampaignNew extends Component {
 									this.setState({minimumContribution: event.target.value })}
 							/>
 
-							<Button style={{ marginTop : '10px' }} primary>Create!</Button>
+							{Error}
+
+							<Button loading={this.state.loading} style={{ marginTop : '10px' }} primary>Create!</Button>
 						</Form.Field>
 					</Form>
 				</Layout>
