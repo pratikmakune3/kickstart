@@ -15,9 +15,7 @@ class CampaignNew extends Component {
 
 	onSubmit = async (event) => {
 		event.preventDefault();
-
 		this.setState({loading : true, errorMessage : ''});
-		
 		try{
 			const accounts = await web3.eth.getAccounts();
 			await factory.methods.createCampaign(this.state.minimumContribution)
@@ -25,17 +23,14 @@ class CampaignNew extends Component {
 					from : accounts[0]
 					// No need to specify gas as Metamask evaluates it!
 				});
-
 			Router.pushRoute('/');
 		}catch(err) {
 			this.setState({ errorMessage : err.message });
 		}
-
 		this.setState({loading : false});
 	};
 
 	render(){
-
 		let Error;
 
 		if(this.state.errorMessage) {
