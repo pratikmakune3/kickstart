@@ -12,12 +12,18 @@ let campaign;
 let campaignAddress;
 
 beforeEach(async () => {
+
+	// Deploy factory
+	// use factory instance to create campaign 
+
 	accounts = await web3.eth.getAccounts();
 
 	factory = await new web3.eth.Contract(JSON.parse(compiledFactory.interface))
 		.deploy({ data: compiledFactory.bytecode })
 		.send({ from: accounts[0], gas: '1000000'});
 
+	// send method doesn't return address. It returns the transaction hash !
+	// Hence we should get the address from getDeployedCampaigns()
 	await factory.methods.createCampaign('100').send({
 		from: accounts[0], 
 		gas: '1000000'
