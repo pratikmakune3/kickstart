@@ -5,11 +5,13 @@
 // server.js
 const next = require('next')
 const routes = require('./routes')
-const app = next({dev: process.env.NODE_ENV !== 'production'})
+const app = next({dev: false})
 const handler = routes.getRequestHandler(app)
 
 // Without express
 const {createServer} = require('http')
 app.prepare().then(() => {
-  createServer(handler).listen(3000)
+	console.log('Server is prepared ...')
+	console.log(process.env.PORT)
+  createServer(handler).listen(process.env.PORT || 3000)
 });
