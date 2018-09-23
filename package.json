@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "dev": "node server.js"
+    "dev": "node server.js",
+    "heroku-postbuild": "npm run build",
   },
   "author": "",
   "license": "ISC",
