@@ -25,7 +25,8 @@
     "semantic-ui-react": "^0.82.3",
     "solc": "^0.4.24",
     "truffle-hdwallet-provider": "0.0.3",
-    "web3": "^1.0.0-beta.34"
+    "web3": "^1.0.0-beta.34",
+    "websocket": "^1.0.28"
   },
   "engines": {
     "node": "8.1.2"
