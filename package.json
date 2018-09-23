@@ -6,8 +6,7 @@
   "scripts": {
     "test": "mocha",
     "dev": "node server.js",
-    "start": "node server.js",
-    "heroku-postbuild": "npm run build"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +14,7 @@
     "fs-extra": "^7.0.0",
     "ganache-cli": "^6.1.8",
     "mocha": "^5.2.0",
+    "nan": "^2.11.0",
     "next": "^4.1.4",
     "next-routes": "^1.4.2",
     "react": "^16.5.0",
