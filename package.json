@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha",
     "dev": "node server.js",
-    "heroku-postbuild": "npm run build",
+    "heroku-postbuild": "npm run build"
   },
   "author": "",
   "license": "ISC",
