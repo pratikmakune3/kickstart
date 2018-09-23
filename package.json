@@ -24,5 +24,8 @@
     "solc": "^0.4.24",
     "truffle-hdwallet-provider": "0.0.3",
     "web3": "^1.0.0-beta.34"
+  },
+  "engines": {
+    "node": "8.1.2"
   }
 }
