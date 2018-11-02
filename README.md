@@ -1,5 +1,5 @@
 # kickstart
-KickstartCoin - Decentralized kickstarter.com using Ethereum Blockchain Ecosystem (Solidity, Web3.js, IPFS), React.js, Node.js, Next.js.
+KickstartCoin - Decentralized kickstarter.com using Ethereum Blockchain Ecosystem (Solidity, Web3.js, IPFS, Remix Editor), React.js, Node.js, Next.js, Mocha.js.
 
 Decentralized Kickstarter - the dApp which is trying to mitigate the scam problems, startups like Kickstarter face. 
 Contributors donate money to campaign they believe in, once the money goes in, they have no control over where the contributed money goes, malicious campaign managers might end up making scams. 
